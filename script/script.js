@@ -16,29 +16,31 @@ const btn_enter = document.querySelector(".btn_enter");
 const btn_register = document.querySelector(".btn_register");
 
 function validateRegisteredData() {
-    
+
     if (name.value === "" && email.value === "" && password.value === "" && confirm.value === "") {
         alert("Os dados precisam ser preenchidos");
         return false;
     }
     else {
-        
+
         alert("usuário cadatrado com sucesso!!")
         //se já tiver uma lista, eu incremento, senão, cria uma lista vazia:
         let listUser = JSON.parse(localStorage.getItem("listUser") || "[]");
         listUser.push(
             {
-                _nome:name.value,
-                _email:email.value,
-                _password:password.value,
+                _nome: name.value,
+                _email: email.value,
+                _password: password.value,
             }
         )
-
         //já add no localStorage agora vou salvar:
         //agr é setItem(nome do meu campo,o que quero colocar)
-        localStorage.setItem("listUser",JSON.stringify(listUser))
-         
+        localStorage.setItem("listUser", JSON.stringify(listUser))
     }
+}
+
+function getData() {
+    
 }
 function validateLoginData() {
     if (email_login.value === "" && password_login.value === "") {
@@ -53,13 +55,14 @@ function validateLoginData() {
         alert("O campo 'senha' precisa ser preenchido");
         return false;
 
-    }else {
+    } else {
+
         
         let listUser = [];
         let userValid = {
-            _name:"",
-            _email:"",
-            _password:"",
+            _name: "",
+            _email: "",
+            _password: "",
         }
         listUser = JSON.parse(localStorage.getItem("listUser"));
         console.log(listUser)
@@ -67,9 +70,9 @@ function validateLoginData() {
 
             if (email_login.value == item._email && password_login.value == item._password) {
                 userValid = {
-                    _name:item._name,
-                    _email:item._email,
-                    _password:item._password,
+                    _name: item._name,
+                    _email: item._email,
+                    _password: item._password,
                 }
             }
         });
@@ -77,38 +80,45 @@ function validateLoginData() {
         if (email_login.value == userValid._email && password_login.value == userValid._password) {
             alert("logou," + userValid._name + "!!");
         } else {
-            alert("usu ou senha incorretos")
+            alert("usuário ou senha incorretos")
             return false
         }
 
-        console.log(userValid)
+        return
     }
 }
 
 
-
-// btn_register.addEventListener("click", (e) => {
-//     let valid = validateRegisteredData();
-//     e.preventDefault();
-//     if (valid ===false) {
-//         return
-//     }
-//     //agr vou atrasar a ação de redirecionar pra que a mensagem apareça
-//     setTimeout(() => {
-//         window.location.href = "/index.html";
-//     }, 3000)//atraso de 3mil mile segundo 
-// })
-
-btn_enter.addEventListener("click", (e) => {
-   
-    if (validateLoginData()===false) {
-        return
-    }
-    
-    setTimeout(() => {
-        window.location.href = "/home.html";
-    }, 3000) 
-})
+//como tenho várias páginas, preciso desse curto circuito pra que
+// quando esteja em uma página que não contenha um botão de outr, por
+//exemplo, não fique dando erro:
+if (btn_register) {
+    btn_register.addEventListener("click", (e) => {
+        let valid = validateRegisteredData();
+        e.preventDefault();
+        if (valid === false) {
+            return
+        }
+        //agr vou atrasar a ação de redirecionar pra que a mensagem apareça
+        setTimeout(() => {
+            window.location.href = "/index.html";
+        }, 3000)//atraso de 3mil mile segundo 
+    })
+}
 
 
+
+
+if (btn_enter) {
+    btn_enter.addEventListener("click", (e) => {
+
+        if (validateLoginData() === false) {
+            return
+        }
+        setTimeout(() => {
+            window.location.href = "/home.html";
+        }, 3000)
+    })
+}
 // end Register and Login pages
+
