@@ -40,7 +40,7 @@ function validateRegisteredData() {
 }
 
 function getData() {
-    
+
 }
 function validateLoginData() {
     if (email_login.value === "" && password_login.value === "") {
@@ -57,7 +57,7 @@ function validateLoginData() {
 
     } else {
 
-        
+
         let listUser = [];
         let userValid = {
             _name: "",
@@ -121,4 +121,43 @@ if (btn_enter) {
     })
 }
 // end Register and Login pages
+// home page
 
+
+; (function () {
+    "use strict"
+
+    const item_input = document.querySelector(".item_input");
+    const todo_container_form = document.querySelector(".todo_container_form");
+    const ul = document.querySelector(".list");
+    const lis = document.getElementsByTagName("li");
+
+    function addTask(task) {
+        const li = document.createElement("li");
+        li.className = "todo-item";
+        const p = document.createElement("p");
+        p.className = "task-name";
+        p.textContent = task;
+        li.appendChild(p);
+        ul.appendChild(li);
+
+        li.addEventListener("click", function (e) {
+            console.log(this)
+        })
+    }
+
+    todo_container_form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        addTask(item_input.value);
+        
+        item_input.value = "";
+        item_input.focus();
+    });
+
+    [...lis].forEach(element => {
+        element.addEventListener("click", function(e) {
+            console.log(this)
+        })
+    });
+
+})()
