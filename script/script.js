@@ -1,3 +1,5 @@
+; (function () {
+    "use strict"
 // beginning  Register and Login pages
 
 const link_login = document.querySelector(".link_login");
@@ -98,8 +100,10 @@ function validateLoginData() {
             }
         });
 
+
         if (email_login.value == userValid._email && password_login.value == userValid._password) {
-            alert("logou," + userValid._name + "!!");
+            alert("Entrando...");
+            
         } else {
             alert("usuário ou senha incorretos")
             return false
@@ -122,12 +126,10 @@ if (btn_register) {
         }
         //agr vou atrasar a ação de redirecionar pra que a mensagem apareça
         setTimeout(() => {
-            window.location.href = "/index.html";
+            window.location.href = "/login.html";
         }, 3000)//atraso de 3mil mile segundo 
     })
 }
-
-
 
 
 if (btn_enter) {
@@ -145,13 +147,13 @@ if (btn_enter) {
 // home page
 
 
-; (function () {
-    "use strict"
+
 
     const item_input = document.querySelector(".item_input");
     const todo_container_form = document.querySelector(".todo_container_form");
     const ul = document.querySelector(".list");
-    //const lis = document.getElementsByTagName("li");
+    // const lis = ul.getElementsByTagName("li");
+    const lis = document.getElementsByTagName("li");
 
     let arrTasks = [//a partir daqui vou criar as tarefas
         {
@@ -252,8 +254,31 @@ if (btn_enter) {
     }
 
     function clickedUl(e) {
-        console.log(e.target)
-        console.log(e.target.getAttribute("data-action"));
+        const dataAction = e.target.getAttribute("data-action");
+
+        if (!dataAction) return;
+
+        let currentLi = e.target;
+        while (currentLi.nodeName !== "LI") {
+            currentLi = currentLi.parentElement;
+        }
+
+        const currentLiIndex = [...lis].indexOf(currentLi);//pra pegar o índice atual do clicado
+
+        const actions = {
+            edit_btn: function () {
+                console.log("é edit")
+            },
+            delete_btn: function () {
+                //a partir do index atual do currentLiIndex vou escluir 1 elemento:
+                arrTasks.splice(currentLiIndex, 1);//remove 1
+                alert(`O item foi excluído com sucesso!`);
+                renderTasks();//atualiza e mostra sem o deletado
+            }
+        }
+        if (actions[dataAction]) {
+            actions[dataAction]();
+        }
     }
 
     if (ul) {
