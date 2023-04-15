@@ -130,34 +130,79 @@ if (btn_enter) {
     const item_input = document.querySelector(".item_input");
     const todo_container_form = document.querySelector(".todo_container_form");
     const ul = document.querySelector(".list");
-    const lis = document.getElementsByTagName("li");
+    //const lis = document.getElementsByTagName("li");
 
-    function addTask(task) {
-        const li = document.createElement("li");
-        li.className = "todo-item";
-        const p = document.createElement("p");
-        p.className = "task-name";
-        p.textContent = task;
-        li.appendChild(p);
-        ul.appendChild(li);
+    let arrTasks = [//a partir daqui vou criar as tarefas
+        {
+            name: "task 11",
+            createTime: Date.now(),
+            completed:false
+        }
+    ]
 
-        li.addEventListener("click", function (e) {
+    function addEventLi(li) {
+        li.addEventListener("click", function () {
             console.log(this)
         })
+    }
+
+    function generateLiTask(obj) {//cria a li dinamicamente
+        const li = document.createElement("li");
+        const p = document.createElement("p");
+        const check_btn = document.createElement("button");
+        
+        const edit_btn = document.createElement("i");
+        const delete_btn = document.createElement("i");
+
+
+
+        li.className = "todo-item";
+        check_btn.className = "button-check";
+        check_btn.innerHTML = '<i class="fas fa-check displayNone"></i>';
+        li.appendChild(check_btn)
+        
+        p.className = "task-name";
+        p.textContent = obj.name;
+        li.appendChild(p);
+
+        
+        edit_btn.className = "fas fa-edit";
+        li.appendChild(edit_btn);
+        
+        delete_btn.className="fas fa-trash-alt";
+        li.appendChild(delete_btn);
+        //ul.appendChild(li);
+        addEventLi(li);
+        return li;
+    }
+
+    function renderTasks() {
+        ul.innerHTML = "";
+        arrTasks.forEach(taskObj => {
+            //agr vou add os itns do li gerados pela função generateLiTask,
+            //e como ela espera um obj como parâmetro aqui passo o tasks:
+            ul.appendChild(generateLiTask(taskObj));
+        });
+    }
+
+    function addTask(task) {
+        arrTasks.push({
+            name: task,//task é a string que passei por param nessa função
+            createTime: Date.now(),
+            completed:false
+        })
+        
     }
 
     todo_container_form.addEventListener("submit", (e) => {
         e.preventDefault();
         addTask(item_input.value);
-        
+        //após a arrTasks ser att preciso renderizar novamente pra mostrar a lista atualizada:
+        renderTasks();
         item_input.value = "";
         item_input.focus();
     });
 
-    [...lis].forEach(element => {
-        element.addEventListener("click", function(e) {
-            console.log(this)
-        })
-    });
+    renderTasks();
 
 })()
