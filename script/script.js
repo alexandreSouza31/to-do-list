@@ -147,6 +147,7 @@ if (btn_enter) {
     }
 
     function generateLiTask(obj) {//cria a li dinamicamente
+        const container = document.querySelector(".container");
         const li = document.createElement("li");
         const p = document.createElement("p");
         const check_btn = document.createElement("button");
@@ -154,27 +155,63 @@ if (btn_enter) {
         const edit_btn = document.createElement("i");
         const delete_btn = document.createElement("i");
 
-
-
         li.className = "todo-item";
         check_btn.className = "button-check";
         check_btn.innerHTML = '<i class="fas fa-check displayNone"></i>';
-        li.appendChild(check_btn)
+        check_btn.setAttribute("data-action", "check_btn");//atributo no check
+        li.appendChild(check_btn);
         
         p.className = "task-name";
         p.textContent = obj.name;
         li.appendChild(p);
-
         
         edit_btn.className = "fas fa-edit";
+        edit_btn.setAttribute("data-action", "edit_btn");
         li.appendChild(edit_btn);
-        
-        delete_btn.className="fas fa-trash-alt";
+
+        //container modal de editar e seus botões
+        const backContainerEdit = document.createElement("div");
+        backContainerEdit.className = "backContainerEdit";
+        container.appendChild(backContainerEdit)
+
+        const containerEdit = document.createElement("div");
+        containerEdit.className = "containerEdit";
+
+        const inputEdit = document.createElement("input");
+        inputEdit.setAttribute("type", "text");
+        inputEdit.className = "inputEdit";
+        containerEdit.appendChild(inputEdit);
+
+        const containerEditBtn = document.createElement("button");
+        containerEditBtn.className = "containerEditBtn";
+        containerEditBtn.textContent = "Edit";
+        containerEditBtn.setAttribute("data-action", "containerEditBtn");
+        containerEdit.appendChild(containerEditBtn);
+
+        const containerCancelBtn = document.createElement("button");
+        containerCancelBtn.className = "containerCancelBtn";
+        containerCancelBtn.textContent = "Cancel";
+        containerCancelBtn.setAttribute("data-action", "containerCancelBtn");
+        containerEdit.appendChild(containerCancelBtn);
+        backContainerEdit.appendChild(containerEdit);
+
+        delete_btn.className = "fas fa-trash-alt";
+        delete_btn.setAttribute("data-action", "delete_btn");
         li.appendChild(delete_btn);
-        //ul.appendChild(li);
         addEventLi(li);
+
+        edit_btn.addEventListener("click", ()=>{
+            backContainerEdit.style.display="block"
+        })
+
+        containerCancelBtn.addEventListener("click", ()=>{
+            backContainerEdit.style.display="none"
+        })
+
         return li;
     }
+
+    
 
     function renderTasks() {
         ul.innerHTML = "";
@@ -191,8 +228,14 @@ if (btn_enter) {
             createTime: Date.now(),
             completed:false
         })
-        
     }
+
+    function clickedUl(e) {
+        console.log(e.target)
+        console.log(e.target.getAttribute("data-action"));
+    }
+
+    ul.addEventListener("click",clickedUl)
 
     todo_container_form.addEventListener("submit", (e) => {
         e.preventDefault();
