@@ -21,6 +21,27 @@ function validateRegisteredData() {
         alert("Os dados precisam ser preenchidos");
         return false;
     }
+    if (name.value === "") {
+        alert("O campo 'nome' precisa ser preenchido");
+        return false;
+    }
+    if (email.value === "") {
+        alert("O campo 'email' precisa ser preenchido");
+        return false;
+    }
+    if (password.value === "") {
+        alert("O campo 'senha' precisa ser preenchido");
+        return false;
+    }
+    if (confirm.value === "") {
+        alert("O campo 'confirme sua senha' precisa ser preenchido");
+        return false;
+    }
+    if (password.value !== confirm.value) {
+        alert("O campo 'senha' e 'confirme sua senha' não conferem");
+        return false;
+    }
+
     else {
 
         alert("usuário cadatrado com sucesso!!")
@@ -235,7 +256,10 @@ if (btn_enter) {
         console.log(e.target.getAttribute("data-action"));
     }
 
-    ul.addEventListener("click",clickedUl)
+    if (ul) {
+        ul.addEventListener("click",clickedUl)
+        
+    
 
     todo_container_form.addEventListener("submit", (e) => {
         e.preventDefault();
@@ -247,5 +271,5 @@ if (btn_enter) {
     });
 
     renderTasks();
-
-})()
+}
+    }) ()
