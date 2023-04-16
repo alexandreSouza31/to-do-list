@@ -156,15 +156,12 @@ function clickedUl(e) {
 }
 
 
-
-
 if (ul) {
     ul.addEventListener("click", clickedUl);
 
 }
-// const btn_add=document.querySelector(".btn_add")
-todo_container_form.addEventListener("submit", (e) => {
-    // btn_add.addEventListener("click", (e) => {
+const btn_add=document.querySelector(".btn_add")
+    btn_add.addEventListener("click", (e) => {
     e.preventDefault();
     addTask(item_input.value);
     //após a arrTasks ser att preciso renderizar novamente pra mostrar a lista atualizada:
