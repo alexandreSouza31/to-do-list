@@ -3,8 +3,7 @@
 const item_input = document.querySelector(".item_input");
 const todo_container_form = document.querySelector(".todo_container_form");
 const ul = document.querySelector(".list");
-// const lis = ul.getElementsByTagName("li");
-const lis = document.getElementsByTagName("li");
+const lis = ul.getElementsByTagName("li");
 
 let arrTasks = [//a partir daqui vou criar as tarefas
     {
@@ -14,12 +13,10 @@ let arrTasks = [//a partir daqui vou criar as tarefas
     }
 ]
 
-// function addEventLi(li) {
-//     li.addEventListener("click", function () {
-//     })
-// }
-
 const container = document.querySelector(".container");
+
+//criação do container modal de editar e seus botões
+
 const backContainerEdit = document.createElement("div");
 backContainerEdit.className = "backContainerEdit";
 container.appendChild(backContainerEdit);
@@ -43,6 +40,8 @@ containerCancelBtn.className = "containerCancelBtn";
 containerCancelBtn.textContent = "Cancel";
 containerCancelBtn.setAttribute("data-action", "containerCancelBtn");
 containerEdit.appendChild(containerCancelBtn);
+// fim criação do container modal de editar e seus botões
+
 
 function generateLiTask(obj) {//cria a li dinamicamente
 
@@ -67,25 +66,14 @@ function generateLiTask(obj) {//cria a li dinamicamente
     edit_btn.setAttribute("data-action", "edit_btn");
     li.appendChild(edit_btn);
 
-    //container modal de editar e seus botões
-
-
     delete_btn.className = "fas fa-trash-alt";
     delete_btn.setAttribute("data-action", "delete_btn");
     li.appendChild(delete_btn);
-    // addEventLi(li);
 
     backContainerEdit.appendChild(containerEdit);
 
-    // containerCancelBtn.addEventListener("click", ()=>{
-    //     backContainerEdit.style.display="none"
-    // })
-
-
     return li;
 }
-
-
 
 function renderTasks() {
 
@@ -141,15 +129,16 @@ function clickedUl(e) {
 
             renderTasks();
             backContainerEdit.style.display = "none";
-
         },
+        
         containerCancelBtn: () => {
             backContainerEdit.style.display = "none";
         },
-        // check_btn: () => {
-        //     arrTasks[currentLiIndex].completed = !arrTasks[currentLiIndex].completed;
-        //     renderTasks()
-        // }
+        
+        check_btn: () => {
+            arrTasks[currentLiIndex].completed = !arrTasks[currentLiIndex].completed;
+            renderTasks()
+        }
     }
     if (actions[dataAction]) {
         const editModal = document.querySelector(".containerEditBtn");
