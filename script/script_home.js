@@ -135,32 +135,32 @@ function clickedUl(e) {
             alert(`O item foi excluído com sucesso!`);
             renderTasks();//atualiza e mostra sem o deletado
         },
-        // containerEditBtn: () => {
-        //     const currentLiIndex = [...lis].indexOf(currentLi);
-        //     arrTasks[currentLiIndex].name = inputModal.value;
+        containerEditBtn: () => {
+            const currentLiIndex = [...lis].indexOf(currentLi);
+            arrTasks[currentLiIndex].name = inputModal.value;
 
-        //     renderTasks();
-        //     backContainerEdit.style.display = "none";
+            renderTasks();
+            backContainerEdit.style.display = "none";
 
-        // },
-        // containerCancelBtn: () => {
-        //     backContainerEdit.style.display = "none";
-        // },
+        },
+        containerCancelBtn: () => {
+            backContainerEdit.style.display = "none";
+        },
         // check_btn: () => {
         //     arrTasks[currentLiIndex].completed = !arrTasks[currentLiIndex].completed;
         //     renderTasks()
         // }
     }
     if (actions[dataAction]) {
-        // const editModal = document.querySelector(".containerEditBtn");
-        // editModal.addEventListener("click", () => {
-        //     actions["containerEditBtn"]();
-        // });
+        const editModal = document.querySelector(".containerEditBtn");
+        editModal.addEventListener("click", () => {
+            actions["containerEditBtn"]();
+        });
 
-        // const cancelModal = document.querySelector(".containerCancelBtn");
-        // cancelModal.addEventListener("click", () => {
-        //     actions["containerCancelBtn"]();
-        // });
+        const cancelModal = document.querySelector(".containerCancelBtn");
+        cancelModal.addEventListener("click", () => {
+            actions["containerCancelBtn"]();
+        });
 
         actions[dataAction]();
     }
