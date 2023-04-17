@@ -17,6 +17,18 @@
     const btn_enter = document.querySelector(".btn_enter");
     const btn_register = document.querySelector(".btn_register");
 
+    // const eye = document.querySelector(".material-symbols-outlined");
+    // eye.addEventListener("click", () => {
+    //     if (eye.textContent === "visibility") {
+    //         eye.textContent = "visibility_off";
+    //         password_login.setAttribute("type", "text");
+            
+    //     } else {
+    //         eye.textContent = "visibility"
+    //         password_login.setAttribute("type", "password");
+    //     }
+    // })
+
     function validateRegisteredData() {
 
         if (name.value === "" && email.value === "" && password.value === "" && confirm.value === "") {
@@ -63,6 +75,7 @@
             //já add no localStorage agora vou salvar:
             //agr é setItem(nome do meu campo,o que quero colocar)
             localStorage.setItem("listUser", JSON.stringify(listUser))
+            
         }
     }
 
@@ -79,9 +92,8 @@
             if (password_login.value === "") {
                 alert("O campo 'senha' precisa ser preenchido");
                 return false;
-
+                
             } else {
-
 
                 let listUser = [];
                 let userValid = {
@@ -90,7 +102,11 @@
                     _password: "",
                 }
                 listUser = JSON.parse(localStorage.getItem("listUser"));
-                console.log(listUser)
+                console.log(listUser);
+                if (!listUser) {
+                    alert("Usuário não cadastrado!")
+                    return false;
+                }
                 listUser.forEach((item) => {
 
                     if (email_login.value == item._email && password_login.value == item._password) {
@@ -127,7 +143,7 @@
                 //agr vou atrasar a ação de redirecionar pra que a mensagem apareça
                 setTimeout(() => {
                     window.location.href = "/login.html";
-                }, 3000)//atraso de 3mil mile segundo 
+                }, 1000)//atraso de 3mil mile segundo 
             })
         }
 
@@ -140,7 +156,7 @@
                 }
                 setTimeout(() => {
                     window.location.href = "/home.html";
-                }, 3000)
+                }, 2000)
             })
         }
     }
