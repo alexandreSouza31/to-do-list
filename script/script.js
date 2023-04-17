@@ -17,17 +17,17 @@
     const btn_enter = document.querySelector(".btn_enter");
     const btn_register = document.querySelector(".btn_register");
 
-    // const eye = document.querySelector(".material-symbols-outlined");
-    // eye.addEventListener("click", () => {
-    //     if (eye.textContent === "visibility") {
-    //         eye.textContent = "visibility_off";
-    //         password_login.setAttribute("type", "text");
+    const eye = document.querySelector(".material-symbols-outlined");
+    eye.addEventListener("click", () => {
+        if (eye.textContent === "visibility") {
+            eye.textContent = "visibility_off";
+            password_login.setAttribute("type", "text");
             
-    //     } else {
-    //         eye.textContent = "visibility"
-    //         password_login.setAttribute("type", "password");
-    //     }
-    // })
+        } else {
+            eye.textContent = "visibility"
+            password_login.setAttribute("type", "password");
+        }
+    })
 
     function validateRegisteredData() {
 
