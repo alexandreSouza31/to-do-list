@@ -1,3 +1,24 @@
 @charset "UTF-8";
 
 /* other devices */
+@charset "UTF-8";
+
+@media only screen and (min-width: 601px) {
+    /*register and login*/
+
+    body{
+        width: 50vw;
+    }
+
+    .list {
+        width: 600px;
+        margin-top: 20px;   
+    }
+    
+    li {
+       
+        margin: 0 auto;
+      
+        width: 500px;
+    }
+}
