@@ -19,9 +19,9 @@ This project is a todo list with login and password verification, along with reg
 
 ### Screenshot
 
-![error_web](![image](https://user-images.githubusercontent.com/112407769/232366643-b2540dba-02e1-4fd3-bf44-8ac14a6b5c1b.png))
-![search_web](![image](https://user-images.githubusercontent.com/112407769/232366756-348a4988-c1fa-44f7-9c8f-e0533d19f03e.png))
-![search_mobile](![image](https://user-images.githubusercontent.com/112407769/232366865-273b4788-2a9d-42b9-9a6a-1560837df13a.png))
+![todo-login](https://user-images.githubusercontent.com/112407769/232369161-4e4e7984-ec5c-4753-b13f-745a74feb563.png)
+![todo-web](https://user-images.githubusercontent.com/112407769/232369166-c6d3dc71-0992-4632-8df0-3036dbe5383f.png)
+![todo-mobile](https://user-images.githubusercontent.com/112407769/232369170-c32f05ca-4673-406b-a626-1d979cb6fc10.png)
 
 
 
@@ -69,7 +69,7 @@ function getSavedData() {
 ### Continued development
 
 ```
-Mobile first, clean code, refactoring.
+Mobile first, localStorage, clean code, refactoring.
 ```
 ### Useful resources
 
