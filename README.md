@@ -69,7 +69,7 @@ function getSavedData() {
 ### Continued development
 
 ```
-Mobile first, clean code, refactoring.
+Mobile first, localStorage, clean code, refactoring.
 ```
 ### Useful resources
 
