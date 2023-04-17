@@ -146,7 +146,7 @@
                 }
                 //agr vou atrasar a ação de redirecionar pra que a mensagem apareça
                 setTimeout(() => {
-                    window.location.href = "/login.html";
+                    window.location.href = "/index.html";
                 }, 1000)//atraso de 3mil mile segundo 
             })
         }
