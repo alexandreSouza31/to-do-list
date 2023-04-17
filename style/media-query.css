@@ -20,10 +20,13 @@
         width: 500px;
     }
 
-    .section_login{
+    /* .section_login{
         margin: 0;
+    }*/
+    .section_login{
+        width: 40vw;
     }
     .section_login input,.section_register{
         width: 40vw;
-    }
+    } 
 }
