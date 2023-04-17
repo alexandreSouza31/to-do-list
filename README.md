@@ -73,18 +73,17 @@ Mobile first, localStorage, clean code, refactoring.
 ```
 ### Useful resources
 
-````
+```
 Google fonts
 href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
-
 ```
 
 ### How to run the code? 
-````
-Just download and run login.html :)
 ```
+Just download and run login.html :)
 
 
+```
 ## Author
 - LinkdIn - Alexandre Mariano(https://www.linkedin.com/in/alexandresouza31/)
 
