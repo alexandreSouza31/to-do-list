@@ -7,7 +7,7 @@
     /*register and login*/
 
     body{
-        width: 50vw;
+        width: 30vw;
     }
 
     .list {
@@ -16,9 +16,14 @@
     }
     
     li {
-       
         margin: 0 auto;
-      
         width: 500px;
+    }
+
+    .section_login{
+        margin: 0;
+    }
+    .section_login input,.section_register{
+        width: 40vw;
     }
 }
