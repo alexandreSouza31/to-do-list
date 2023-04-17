@@ -35,6 +35,10 @@
             alert("O campo 'senha' precisa ser preenchido");
             return false;
         }
+        if (password.value.length < 6) {
+            alert("O campo 'senha' precisa ter no mínimo 6 caracteres");
+            return false;
+        }
         if (confirm.value === "") {
             alert("O campo 'confirme sua senha' precisa ser preenchido");
             return false;
@@ -62,87 +66,87 @@
         }
     }
 
-    function getData() {
-
-    }
-    function validateLoginData() {
-        if (email_login.value === "" && password_login.value === "") {
-            alert("Os dados precisam ser preenchidos");
-            return false;
-        }
-        if (email_login.value === "") {
-            alert("O campo 'email' precisa ser preenchido");
-            return false;
-        }
-        if (password_login.value === "") {
-            alert("O campo 'senha' precisa ser preenchido");
-            return false;
-
-        } else {
-
-
-            let listUser = [];
-            let userValid = {
-                _name: "",
-                _email: "",
-                _password: "",
+    if (section_register || section_login) {
+        function validateLoginData() {
+            if (email_login.value === "" && password_login.value === "") {
+                alert("Os dados precisam ser preenchidos");
+                return false;
             }
-            listUser = JSON.parse(localStorage.getItem("listUser"));
-            console.log(listUser)
-            listUser.forEach((item) => {
-
-                if (email_login.value == item._email && password_login.value == item._password) {
-                    userValid = {
-                        _name: item._name,
-                        _email: item._email,
-                        _password: item._password,
-                    }
-                }
-            });
-
-
-            if (email_login.value == userValid._email && password_login.value == userValid._password) {
-                alert("Entrando...");
+            if (email_login.value === "") {
+                alert("O campo 'email' precisa ser preenchido");
+                return false;
+            }
+            if (password_login.value === "") {
+                alert("O campo 'senha' precisa ser preenchido");
+                return false;
 
             } else {
-                alert("usuário ou senha incorretos")
-                return false
-            }
 
-            return
+
+                let listUser = [];
+                let userValid = {
+                    _name: "",
+                    _email: "",
+                    _password: "",
+                }
+                listUser = JSON.parse(localStorage.getItem("listUser"));
+                console.log(listUser)
+                listUser.forEach((item) => {
+
+                    if (email_login.value == item._email && password_login.value == item._password) {
+                        userValid = {
+                            _name: item._name,
+                            _email: item._email,
+                            _password: item._password,
+                        }
+                    }
+                });
+
+
+                if (email_login.value == userValid._email && password_login.value == userValid._password) {
+                    alert("Entrando...");
+
+                } else {
+                    alert("usuário ou senha incorretos")
+                    return false
+                }
+
+                return
+            }
+        }
+        //como tenho várias páginas, preciso desse curto circuito pra que
+        // quando esteja em uma página que não contenha um botão de outr, por
+        //exemplo, não fique dando erro:
+        if (btn_register) {
+            btn_register.addEventListener("click", (e) => {
+                let valid = validateRegisteredData();
+                e.preventDefault();
+                if (valid === false) {
+                    return
+                }
+                //agr vou atrasar a ação de redirecionar pra que a mensagem apareça
+                setTimeout(() => {
+                    window.location.href = "/login.html";
+                }, 3000)//atraso de 3mil mile segundo 
+            })
+        }
+
+
+        if (btn_enter) {
+            btn_enter.addEventListener("click", (e) => {
+
+                if (validateLoginData() === false) {
+                    return
+                }
+                setTimeout(() => {
+                    window.location.href = "/home.html";
+                }, 3000)
+            })
         }
     }
 
 
-    //como tenho várias páginas, preciso desse curto circuito pra que
-    // quando esteja em uma página que não contenha um botão de outr, por
-    //exemplo, não fique dando erro:
-    if (btn_register) {
-        btn_register.addEventListener("click", (e) => {
-            let valid = validateRegisteredData();
-            e.preventDefault();
-            if (valid === false) {
-                return
-            }
-            //agr vou atrasar a ação de redirecionar pra que a mensagem apareça
-            setTimeout(() => {
-                window.location.href = "/login.html";
-            }, 3000)//atraso de 3mil mile segundo 
-        })
-    }
 
 
-    if (btn_enter) {
-        btn_enter.addEventListener("click", (e) => {
-
-            if (validateLoginData() === false) {
-                return
-            }
-            setTimeout(() => {
-                window.location.href = "/home.html";
-            }, 3000)
-        })
-    }
-    // end Register and Login pages
 
 })()
