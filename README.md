@@ -1,7 +1,7 @@
 
 # to-do-list
 
-This project is a todo list with login and password verification, along with registration.
+This project is a to do list with login and password verification, along with registration.
 
 ## Table of contents
 
