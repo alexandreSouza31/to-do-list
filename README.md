@@ -41,11 +41,13 @@ This project is a to do list with login and password verification, along with re
 
 ```js
 
-
+//function that delays redirection to another page:
 setTimeout(() => {
     window.location.href = "/login.html";
 }, 1000)
 
+
+//function to save data to localstorage:
 
 function getSavedData() {
         let tasks_data = localStorage.getItem("tasks")
@@ -60,6 +62,7 @@ function getSavedData() {
         ]
     }
 
+//function to modify data in localstorage:
     function setNewData() {
         localStorage.setItem("tasks", JSON.stringify(arrTasks))
     }
@@ -75,12 +78,16 @@ Mobile first, localStorage, clean code, refactoring.
 
 ```
 Google fonts
-href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/
 ```
 
 ### How to run the code? 
 ```
-Just download and run login.html :)
+Click the green button to download the code files to your PC and run the index.html file.
+
+Or open it in deploy to test the features: https://to-do-list-ten-bay.vercel.app/
+
+:)
 
 
 ```
