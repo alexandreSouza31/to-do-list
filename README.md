@@ -32,7 +32,6 @@ This project is a to do list with login and password verification, along with re
 - Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
-- href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
 - javascript
 - mobile first
 
