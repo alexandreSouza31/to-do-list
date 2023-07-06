@@ -84,15 +84,18 @@ https://fonts.google.com/icons
 ```
 
 ### How to run the code? 
-```
-Click the green button to download the code files to your PC and run the index.html file.
+ Clonando/baixando o projeto
 
-Or open it in deploy to test the features: https://to-do-list-ten-bay.vercel.app/
+Digite o comando ```git clone https://github.com/alexandreSouza31/to-do-list``` no terminal, ou se preferir, baixe clicando no botão verde chamado "Code" no repositório deste projeto, e em seguida, "Download zip.
+
+#### Deploy
+
+Se quiser ver a aplicação rodando sem a necessidade de baixá-la acesse
+
+- [Vercel](https://to-do-list-ten-bay.vercel.app/) - Site usado para hospedar a aplicação.
 
 :)
 
-
-```
 ## Author
 - LinkdIn - Alexandre Mariano(https://www.linkedin.com/in/alexandresouza31/)
 
