@@ -88,6 +88,8 @@ https://fonts.google.com/icons
 
  Enter the command ```git clone https://github.com/alexandreSouza31/to-do-list``` in the terminal, or if you prefer, download it by clicking on the green button called "Code" in this project's repository, and then, "Download zip.
 
+ run index.html
+
 #### Deploy
 
 Se quiser ver a aplicação rodando sem a necessidade de baixá-la acesse
