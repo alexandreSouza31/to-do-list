@@ -84,9 +84,9 @@ https://fonts.google.com/icons
 ```
 
 ### How to run the code? 
- Clonando/baixando o projeto
+ Cloning/downloading the project
 
-Digite o comando ```git clone https://github.com/alexandreSouza31/to-do-list``` no terminal, ou se preferir, baixe clicando no botão verde chamado "Code" no repositório deste projeto, e em seguida, "Download zip.
+ Enter the command ```git clone https://github.com/alexandreSouza31/to-do-list``` in the terminal, or if you prefer, download it by clicking on the green button called "Code" in this project's repository, and then, "Download zip.
 
 #### Deploy
 
