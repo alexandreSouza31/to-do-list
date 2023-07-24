@@ -92,9 +92,8 @@ https://fonts.google.com/icons
 
 #### Deploy
 
-Se quiser ver a aplicação rodando sem a necessidade de baixá-la acesse
-
-- [Vercel](https://to-do-list-ten-bay.vercel.app/) - Site usado para hospedar a aplicação.
+If you want to see the application running without having to download it, go to
+- [Vercel](https://to-do-list-ten-bay.vercel.app/) - Website used to host the application.
 
 :)
 
